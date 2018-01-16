@@ -41,20 +41,20 @@ int main()
 
     //printf("%d addresses loaded\n", AddressCount);
 
-    printf("%s\n", WalletList[ rand() % WalletCount]);
-    printf("testing123\n");
+    printf("%s\n", WalletList[ rand() % WalletCount]);	// wallet to open
+    printf("testing123\n");				// password to unlock wallet
     usleep(100000);
-    printf("save\n");
+    printf("save\n");					// save wallet
     usleep(100000);
     for (i=0;i<100;i++) {
-    	printf("transfer %s 0.00%d dd04bdf008f7601e024c323349c0a00aff1bf01bd0f2e38073142976bfb84762\n", AddressList[ rand() % AddressCount], rand() % 99999);
+    	printf("transfer %s 0.00%d dd04bdf008f7601e024c323349c0a00aff1bf01bd0f2e38073142976bfb84762\n", 
+			AddressList[ rand() % AddressCount], rand() % 99999);
         usleep(100000);
-        printf("testing123\n");
+        printf("testing123\n");				// Authorize the transaction with the password
         usleep(100000);
-        printf("y\n");
+        printf("y\n");					// Confirm 'y' to proceed
         usleep(100000);
-        printf("y\n");
+        printf("y\n");					// Extra confirm, if there is a transaction backlog
     }
 
- /* Do something more if you want */
 }
