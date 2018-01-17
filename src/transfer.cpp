@@ -56,5 +56,7 @@ int main()
         usleep(100000);
         printf("y\n");					// Extra confirm, if there is a transaction backlog
     }
+    printf("save\n");					// save wallet
+    printf("exit\n");					// exit wallet
 
 }
