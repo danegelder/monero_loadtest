@@ -46,7 +46,7 @@ int main()
     usleep(100000);
     printf("save\n");					// save wallet
     usleep(100000);
-    for (i=0;i<100;i++) {
+    for (i=0;i<10;i++) {
     	printf("transfer %s 0.00%d dd04bdf008f7601e024c323349c0a00aff1bf01bd0f2e38073142976bfb84762\n", 
 			AddressList[ rand() % AddressCount], rand() % 99999);
         usleep(100000);
