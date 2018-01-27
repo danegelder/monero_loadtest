@@ -2,6 +2,11 @@
 #include <fstream>
 #include <cmath>
 #include <iomanip>
+#include <string.h>
+#include<sys/types.h>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+#include <sys/time.h>       /* time */
 
 using namespace std;
 
@@ -15,10 +20,18 @@ string ThisAddress;
 int  NumWallets = 0;
 int  NumAddresses = 0;
 
+
+
 int main () {
 
+    int i,j;
+    struct timeval time; 
 
 
+    gettimeofday(&time,NULL);
+
+
+    srand (time.tv_usec);
 
 
     while ( walletsfile >> ThisWallet) {
@@ -30,22 +43,45 @@ int main () {
     }
 
 
-    cout << "Debug: Loaded " << NumWallets << " wallets and " << NumAddresses << " addresses.\n";
 
+
+    //cout << Wallet[ rand() % NumWallets ]  <<  "\n" ;		// wallet to open
     cout << "MainMining.bin\n" ;		// wallet to open
 
     cout << "testing123\n";			// password
 
+    cerr << "Waiting for wallet to be ready\n" ;  		// stderr logging 
+
     cout << "save\n";				// save the wallet once blockchain has been read
 
-    cout << "transfer 45gF1fmpESRE9M57ovLSQtgKDyf5coCBT1VjyMwrSdDcEpiD7ofGw2rdGN8Vj1bWjK9AtCiJv3Yi9MQYtvNiPKVz9RPkC9p 2.0\n";	// issue transfer command
+    cerr << "Transferring\n" ;  		// stderr logging 
 
-    cout << "testing123\n";			// password
+    for (i=0;i<10;i++) {
 
-    cout << "y\n";				// Confirm no transaction payment id
+        
 
-    cout << "y\n";				// Confirm  to proceed
+        cout << "transfer "  ;
 
-    cout << "y\n";				// Confirm if there is a backlog in processing
+        for (j=0;j<10;j++) {
+
+            cout << Address[ rand() % NumAddresses ]  << " " << rand() % 3 << "." << rand() % 1000 << " "  ;
+
+        }
+
+        cout << " e2780d2166a5e845ae1b528d04adeeb7fb6425ab12586ca7b7e8ee15bcf744c2\n";	// issue transfer command
+
+        cout << "testing123\n";			// password
+
+        cout << "y\n";				// Confirm no transaction payment id
+
+        cout << "y\n";				// Confirm  to proceed
+
+        cout << "y\n";				// Confirm if there is a backlog in processing
+
+    }
+
+    cerr << "Completed...\n" ;  		// stderr logging 
+
+
 }
 
